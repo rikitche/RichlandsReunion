@@ -41,7 +41,7 @@ export default function NavBar() {
           size="sm"
           className="bg-rich-gold hover:bg-rich-blue text-rich-blue hover:text-rich-gold text-md rounded-20 cursor-pointer"
         >
-          <span>LOGIN</span>
+          <span>LOG IN</span>
         </Button>
       </div>
     </div>
