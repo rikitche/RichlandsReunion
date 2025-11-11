@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const images = [
   {
-    src: "/breaking-bad.webp",
+    src: "/breaking-bad.jpg",
     caption: "Series finale of Breaking Bad",
   },
   {
@@ -13,12 +13,12 @@ const images = [
     caption: "Release of the Xbox One",
   },
   {
-    src: "/thrift-shop.webp",
+    src: "/thrift-shop.jpg",
     caption:
       "Best performing single of 2013: 'Thrift Shop' by Macklemore & Ryan Lewis",
   },
   {
-    src: "/bruno-mars.webp",
+    src: "/bruno-mars.jpg",
     caption:
       "Bruno Mars wins his 5th number one single on the Billboard 100 with 'When I Was Your Man'",
   },
@@ -27,11 +27,7 @@ const images = [
     caption: "Top grossing film of 2013: 'Frozen' from Disney",
   },
   {
-    src: "/harlem-shake.webp",
-    caption: "Harlem Shake becomes a viral sensation",
-  },
-  {
-    src: "/wallstreet.webp",
+    src: "/wallstreet.jpg",
     caption: "'The Wolf of Wall Street' hit theaters December 25th",
   },
 ];

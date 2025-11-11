@@ -159,6 +159,13 @@ export default function ReunionPage() {
             <span>13 Year Reunion</span>
             <span>•</span>
             <span>2026</span>
+            <span>•</span>
+            <a
+              href="/attributions"
+              className="underline hover:text-gray-300 ml-1"
+            >
+              Image Credits
+            </a>
           </div>
         </div>
       </footer>
