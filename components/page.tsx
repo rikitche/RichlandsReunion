@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
 import NavBar from "./nav-bar";
-import Modal from "./modal";
-import { RsvpForm } from "./rsvp-form";
 import { Typography, Button } from "@material-tailwind/react";
+import RsvpModal from "./rsvp/rsvp-form-modal";
 
 type PageProps = {
   children?: React.ReactNode;
@@ -38,13 +37,8 @@ export default function Page({ children }: PageProps) {
             <span>LOG IN</span>
           </Button>
         </NavBar>
-        <Modal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-          title="RSVP"
-        >
-          <RsvpForm />
-        </Modal>
+        <RsvpModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
         {children}
       </main>
     </div>

@@ -6,56 +6,16 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+type RsvpFormProps = {
+  setPage: (page: number) => void;
+};
 
-export function RsvpForm() {
-  const [submitted, setSubmitted] = useState(false);
-  const [page, setPage] = React.useState(1);
-
+export function RsvpForm({ setPage }: RsvpFormProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
     console.log("Form submitted");
   };
 
-  if (submitted) {
-    return (
-      <section className="py-16 px-4 bg-cream">
-        <div className="max-w-xl mx-auto">
-          <Card className="p-8 text-center bg-white border-sage/20">
-            <div className="h-16 w-16 rounded-full bg-sage/10 flex items-center justify-center mx-auto mb-4">
-              <svg
-                className="h-8 w-8 text-sage"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-            </div>
-            <h3 className="font-serif text-3xl mb-2 text-charcoal">
-              You're All Set!
-            </h3>
-            <p className="text-muted-foreground mb-4">
-              We can't wait to see you at the reunion. Check your email for
-              confirmation details.
-            </p>
-            <Button
-              onClick={() => setSubmitted(false)}
-              variant="outline"
-              className="border-sage text-sage hover:bg-sage/5"
-            >
-              Submit Another RSVP
-            </Button>
-          </Card>
-        </div>
-      </section>
-    );
-  }
   return (
     <section className="py-16 px-4 bg-cream">
       <div className="max-w-xl mx-auto">
