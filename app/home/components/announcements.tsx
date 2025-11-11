@@ -1,7 +1,8 @@
-import useGetAnnouncements from "@/hooks/useGetAnnouncements";
+"use client";
+import { useGetAnnouncements } from "@/hooks/useGetAnnouncements";
 
 export default function AccouncementsSection() {
-  var { announcements, isLoading, isError } = useGetAnnouncements();
+  var { announcements, loading, error } = useGetAnnouncements();
   announcements = announcements || [
     {
       id: 1,
