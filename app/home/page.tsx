@@ -3,6 +3,7 @@ import { Calendar, MapPin, Clock, Users } from "lucide-react";
 import { ReunionHero } from "@/app/home/components/reunion-hero";
 import Page from "@/components/page";
 import AccouncementsSection from "./components/announcements";
+import LookingBackSection from "./components/looking-back";
 
 export default function ReunionPage() {
   return (
@@ -16,7 +17,7 @@ export default function ReunionPage() {
             Save the Date
           </h2>
           <p className="text-center text-muted-foreground text-lg mb-12 max-w-2xl mx-auto text-pretty text-white">
-            After xx years, it's time to reconnect, reminisce, and celebrate the
+            After 13 years, it's time to reconnect, reminisce, and celebrate the
             memories we made together
           </p>
 
@@ -83,6 +84,8 @@ export default function ReunionPage() {
       </section>
 
       <AccouncementsSection />
+
+      <LookingBackSection />
 
       {/* Schedule Section */}
       <section className="py-16 px-4 bg-transparent">
@@ -153,9 +156,16 @@ export default function ReunionPage() {
           <div className="flex justify-center gap-6 text-sm text-white/60">
             <span>Richlands High School</span>
             <span>•</span>
-            <span>xx Year Reunion</span>
+            <span>13 Year Reunion</span>
             <span>•</span>
             <span>2026</span>
+            <span>•</span>
+            <a
+              href="/attributions"
+              className="underline hover:text-gray-300 ml-1"
+            >
+              Image Credits
+            </a>
           </div>
         </div>
       </footer>

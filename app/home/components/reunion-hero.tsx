@@ -10,7 +10,7 @@ export function ReunionHero() {
         </h1>
 
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto text-pretty leading-relaxed text-white">
-          xx years later, and the memories are still vivid. Join us for an
+          13 years later, and the memories are still vivid. Join us for an
           unforgettable evening of reconnection and nostalgia.
         </p>
 
