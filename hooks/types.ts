@@ -10,5 +10,7 @@ export type User = {
     firstName: string;
     lastName: string;
     password?: string;
+    attending: string
+    guests: number
     fullUser: boolean
 }
