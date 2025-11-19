@@ -8,6 +8,8 @@ type RsvpFormConfirmationProps = {
   submitRsvp: () => void;
   submitted: boolean;
   setSubmitted: (submitted: boolean) => void;
+  onClose: () => void;
+  loading: boolean;
 };
 
 export default function RsvpFormConfirmation({
@@ -15,14 +17,17 @@ export default function RsvpFormConfirmation({
   submitRsvp,
   submitted,
   setSubmitted,
+  onClose,
+  loading,
 }: RsvpFormConfirmationProps) {
   if (submitted) {
-    return <RsvpSubmitted setSubmitted={setSubmitted} />;
+    return <RsvpSubmitted setSubmitted={setSubmitted} onClose={onClose} />;
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     console.log("created user");
-    setPage(4);
     submitRsvp();
   };
   return (
@@ -52,8 +57,9 @@ export default function RsvpFormConfirmation({
             <Button
               className="w-full bg-sage hover:bg-sage/90 text-white cursor-pointer"
               type="submit"
+              disabled={loading}
             >
-              No thanks! Submit RSVP
+              {loading ? "Submitting..." : "No thanks! I just want to RSVP"}
             </Button>
           </form>
         </Card>

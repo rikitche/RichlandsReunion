@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { User } from "@/hooks/types";
+import { useRsvp } from "@/hooks/useRsvp";
 type RsvpFormProps = {
   setPage: (page: number) => void;
   setUser: (user: User) => void;
@@ -30,7 +31,6 @@ export function RsvpForm({ setPage, setUser }: RsvpFormProps) {
 
     setPage(2);
     setUser(user);
-    console.log("Form submitted");
   };
 
   return (
@@ -125,7 +125,7 @@ export function RsvpForm({ setPage, setUser }: RsvpFormProps) {
             </div>
 
             <Button
-              className="w-full bg-sage hover:bg-sage/90 text-white"
+              className="w-full bg-sage hover:bg-sage/90 text-white cursor-pointer"
               type="submit"
             >
               Submit RSVP

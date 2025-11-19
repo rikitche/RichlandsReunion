@@ -6,6 +6,8 @@ import RsvpFormConfirmation from "./rsvp-form-confirmation";
 import RsvpFormAdvanced from "./rsvp-form-advanced";
 import { User } from "@/hooks/types";
 import RsvpSubmitted from "./rsvp-submitted";
+import { useCreateUser } from "@/hooks/useAddUser";
+import { useRsvp } from "@/hooks/useRsvp";
 
 type RsvpModalProps = {
   isOpen: boolean;
@@ -25,13 +27,33 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
   const [page = 1, setPage] = useState<number>(1);
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [user, setUser] = useState<User>(emptyUser);
+  const { createUser, userLoading, userError, userSuccess } = useCreateUser();
+  const { createRsvp, rsvpLoading, rsvpError, rsvpSuccess } = useRsvp();
 
   if (page < 1 || page > 4) {
     return null;
   }
 
-  const handleCreateRsvp = () => {
-    console.log("RSVP Created");
+  const handleCreateRsvp = async () => {
+    console.log(user);
+    if (user.password) {
+      setUser({ ...user, fullUser: true });
+      await createUser(user);
+      if (userError) {
+        alert(userError);
+        return;
+      } else {
+        setPage(4);
+      }
+    } else {
+      await createRsvp(user);
+      if (rsvpError) {
+        alert(rsvpError);
+        return;
+      } else {
+        setPage(4);
+      }
+    }
   };
 
   const handleClose = () => {
@@ -51,6 +73,8 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
           submitRsvp={handleCreateRsvp}
           submitted={submitted}
           setSubmitted={setSubmitted}
+          onClose={handleClose}
+          loading={rsvpLoading}
         />
       </>
     ) : page === 3 ? (
@@ -62,10 +86,11 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
           user={user}
           setUser={setUser}
           setPage={setPage}
+          onClose={handleClose}
         />
       </>
     ) : (
-      <RsvpSubmitted setSubmitted={setSubmitted} />
+      <RsvpSubmitted setSubmitted={setSubmitted} onClose={handleClose} />
     );
 
   return (

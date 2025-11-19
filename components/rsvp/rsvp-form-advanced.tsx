@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { useState } from "react";
 
 type RsvpFormAdvancedProps = {
   submitRsvp: () => void;
@@ -13,7 +14,8 @@ type RsvpFormAdvancedProps = {
   setSubmitted: (submitted: boolean) => void;
   user: User;
   setUser: (user: User) => void;
-  setPage: (page: number) => void;
+  setPage?: (page: number) => void;
+  onClose: () => void;
 };
 
 export default function RsvpFormAdvanced({
@@ -22,16 +24,25 @@ export default function RsvpFormAdvanced({
   submitRsvp,
   user,
   setUser,
-  setPage,
+  onClose,
 }: RsvpFormAdvancedProps) {
+  const [error, setError] = useState<string>("");
   if (submitted) {
-    return <RsvpSubmitted setSubmitted={setSubmitted} />;
+    return <RsvpSubmitted setSubmitted={setSubmitted} onClose={onClose} />;
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // logic for setting a username and password
-    setPage(4);
+
+    const formData = new FormData(e.currentTarget);
+    const password = formData.get("password") as string;
+    const confirmPassword = formData.get("confirmPassword") as string;
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
     submitRsvp();
   };
 
@@ -139,7 +150,10 @@ export default function RsvpFormAdvanced({
                 required
                 value={user.guests}
                 onChange={(e) =>
-                  setUser({ ...user, guests: Number(e.target.value) })
+                  setUser({
+                    ...user,
+                    guests: Number(e.target.value),
+                  })
                 }
               />
             </div>
@@ -154,6 +168,12 @@ export default function RsvpFormAdvanced({
                 className="text-white"
                 type="password"
                 required
+                onChange={(e) =>
+                  setUser({
+                    ...user,
+                    password: e.target.value,
+                  })
+                }
               />
             </div>
 
