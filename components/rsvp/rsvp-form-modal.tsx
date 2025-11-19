@@ -87,6 +87,7 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
           setUser={setUser}
           setPage={setPage}
           onClose={handleClose}
+          loading={userLoading}
         />
       </>
     ) : (

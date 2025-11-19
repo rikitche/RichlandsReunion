@@ -31,21 +31,21 @@ const bebas = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "v0 App",
+  title: "Richlands High School Reunion | Class of 2013",
   description: "Created with v0",
   generator: "v0.app",
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
+        url: "/wildcat.png",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/icon-dark-32x32.png",
+        url: "/wildcat.png",
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/icon.svg",
+        url: "/wildcat.png",
         type: "image/svg+xml",
       },
     ],
