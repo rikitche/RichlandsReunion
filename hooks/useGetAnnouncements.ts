@@ -1,27 +1,27 @@
-"use client"
-import { useState, useEffect } from "react"
-import { supabase } from "./supabase-client"
-import type { Announcement } from "./types"
+"use client";
+import { useState, useEffect } from "react";
+import { supabase } from "./supabase-client";
+import type { Announcement } from "./types";
 
 export function useGetAnnouncements() {
-  const [announcements, setAnnouncements] = useState<Announcement[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchAnnouncements = async () => {
-      setLoading(true)
-      setError(null)
+      setLoading(true);
+      setError(null);
 
       const { data, error } = await supabase
         .from("announcements")
         .select("*")
-        .order("date", { ascending: false })
+        .order("createdAt", { ascending: false });
 
       if (error) {
-        setError(error.message)
-        setLoading(false)
-        return
+        setError(error.message);
+        setLoading(false);
+        return;
       }
 
       if (data) {
@@ -29,18 +29,18 @@ export function useGetAnnouncements() {
         const parsed: Announcement[] = data.map((item: any) => ({
           id: item.id,
           content: item.content,
-          date: new Date(item.date),
+          createdAt: new Date(item.date),
           postedBy: item.posted_by || item.postedBy,
-        }))
+        }));
 
-        setAnnouncements(parsed)
+        setAnnouncements(parsed);
       }
 
-      setLoading(false)
-    }
+      setLoading(false);
+    };
 
-    fetchAnnouncements()
-  }, [])
+    fetchAnnouncements();
+  }, []);
 
-  return { announcements, loading, error }
+  return { announcements, loading, error };
 }

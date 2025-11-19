@@ -33,7 +33,7 @@ export default function AccouncementsSection() {
             </p>
             <p className="text-sm text-muted-foreground mt-2 text-white">
               Posted by {announcement.postedBy} on{" "}
-              {new Date(announcement.date).toLocaleDateString()}
+              {new Date(announcement.createdAt).toLocaleDateString()}
             </p>
           </div>
         ))}
