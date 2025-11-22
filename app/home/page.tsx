@@ -1,14 +1,21 @@
+"use client";
 import { Card } from "@/components/ui/card";
 import { Calendar, MapPin, Clock, Users } from "lucide-react";
 import { ReunionHero } from "@/app/home/components/reunion-hero";
 import Page from "@/components/page";
 import AccouncementsSection from "./components/announcements";
 import LookingBackSection from "./components/looking-back";
+import { useState } from "react";
 
 export default function ReunionPage() {
+  const [isRsvpModalOpen, setIsRsvpModalOpen] = useState(false);
+
   return (
-    <Page>
-      <ReunionHero />
+    <Page
+      customIsRsvpModalOpen={isRsvpModalOpen}
+      customSetIsRsvpModalOpen={setIsRsvpModalOpen}
+    >
+      <ReunionHero setIsRsvpModalOpen={setIsRsvpModalOpen} />
 
       {/* Event Details Section */}
       <section className="py-16 px-4 bg-charcoal">

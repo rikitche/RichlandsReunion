@@ -9,10 +9,23 @@ import useLogout from "@/hooks/useLogout";
 
 type PageProps = {
   children?: React.ReactNode;
+  customIsRsvpModalOpen?: boolean;
+  customSetIsRsvpModalOpen?: (isOpen: boolean) => void;
 };
-export default function Page({ children }: PageProps) {
-  const [isRsvpModalOpen, setIsRsvpModalOpen] = React.useState(false);
+export default function Page({
+  children,
+  customIsRsvpModalOpen,
+  customSetIsRsvpModalOpen,
+}: PageProps) {
+  const [isRsvpModalOpenTemp, setIsRsvpModalOpenTemp] = React.useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = React.useState(false);
+
+  const isRsvpModalOpen =
+    customIsRsvpModalOpen !== undefined
+      ? customIsRsvpModalOpen
+      : isRsvpModalOpenTemp;
+
+  const setIsRsvpModalOpen = customSetIsRsvpModalOpen ?? setIsRsvpModalOpenTemp;
 
   const { user, loading } = useSupabaseUser();
   const logout = useLogout();
