@@ -24,12 +24,14 @@ export function useGetAnnouncements() {
         return;
       }
 
+      console.log(data);
+
       if (data) {
         // Map database results to your Announcement type
         const parsed: Announcement[] = data.map((item: any) => ({
           id: item.id,
           content: item.content,
-          createdAt: new Date(item.date),
+          createdAt: new Date(item.createdAt),
           postedBy: item.posted_by || item.postedBy,
         }));
 
