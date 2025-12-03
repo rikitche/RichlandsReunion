@@ -13,17 +13,18 @@
   --rich-blue: #0544aa;
   --rich-gold: #d4af37;
   --deep-blue: #0a3d62;
+  --background-color: #ebebeb;
 
-  --background: var(--cream);
-  --foreground: var(--charcoal);
+  --background: oklch(0.99 0.005 105);
+  --foreground: oklch(0.25 0.04 265);
   --card: var(--warm-white);
   --card-foreground: var(--charcoal);
   --popover: var(--warm-white);
   --popover-foreground: var(--charcoal);
-  --primary: var(--sage);
-  --primary-foreground: var(--warm-white);
-  --secondary: var(--terracotta);
-  --secondary-foreground: var(--warm-white);
+  --primary: oklch(0.38 0.15 265);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.72 0.12 85);
+  --secondary-foreground: oklch(0.25 0.04 265);
   --muted: oklch(0.92 0.01 85);
   --muted-foreground: oklch(0.45 0.02 280);
   --accent: var(--sage);

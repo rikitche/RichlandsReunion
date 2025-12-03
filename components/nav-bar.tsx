@@ -21,7 +21,7 @@ export default function NavBar({ children, authed }: NavBarProps) {
   );
 
   return (
-    <div className="gap-6 sticky top-0 fixed z-[9998] w-screen flex items-center bg-black px-4 py-3 shadow-md h-24">
+    <div className="container mx-auto px-4 py-4 flex items-center justify-between">
       <img
         src={"/placeholder.svg"}
         alt={"Logo"}
