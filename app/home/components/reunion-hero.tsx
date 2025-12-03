@@ -1,7 +1,13 @@
+"use client";
 import { Button } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
+import { useRouter } from "next/navigation";
 
-export function ReunionHero() {
+type ReunionHeroProps = {
+  setIsRsvpModalOpen: (isOpen: boolean) => void;
+};
+
+export function ReunionHero({ setIsRsvpModalOpen }: ReunionHeroProps) {
+  const router = useRouter();
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4">
       <div className="relative z-10 text-center max-w-4xl mx-auto">
@@ -17,7 +23,8 @@ export function ReunionHero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             size="lg"
-            className="bg-sage hover:bg-sage/90 text-white px-8 cursor-pointer"
+            className="bg-rich-blue hover:bg-rich-blue/90 text-white px-8 cursor-pointer"
+            onClick={() => setIsRsvpModalOpen(true)}
           >
             RSVP Now
           </Button>
@@ -25,6 +32,7 @@ export function ReunionHero() {
             size="lg"
             variant="outline"
             className="border-rich-gold text-rich-gold hover:bg-rich-gold/5 bg-transparent cursor-pointer"
+            onClick={() => router.push("/gallery")}
           >
             View Photo Gallery
           </Button>

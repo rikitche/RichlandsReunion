@@ -5,12 +5,16 @@ import {
   Poppins,
   Pacifico,
   Bebas_Neue,
+  Playfair_Display,
+  Inter,
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const _playfair = Playfair_Display({ subsets: ["latin"] });
+const _inter = Inter({ subsets: ["latin"] });
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -31,21 +35,21 @@ const bebas = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "v0 App",
+  title: "Richlands High School Reunion | Class of 2013",
   description: "Created with v0",
   generator: "v0.app",
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
+        url: "/wildcat.png",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/icon-dark-32x32.png",
+        url: "/wildcat.png",
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/icon.svg",
+        url: "/wildcat.png",
         type: "image/svg+xml",
       },
     ],

@@ -4,11 +4,13 @@ import { Card } from "@/components/ui/card";
 type RsvpSubmittedProps = {
   setSubmitted: (submitted: boolean) => void;
   onClose: () => void;
+  fullUser?: boolean;
 };
 
 export default function RsvpSubmitted({
   setSubmitted,
   onClose,
+  fullUser,
 }: RsvpSubmittedProps) {
   const handleClose = () => {
     setSubmitted(false);
@@ -37,7 +39,9 @@ export default function RsvpSubmitted({
             You're All Set!
           </h3>
           <p className="text-muted-foreground mb-4 text-white">
-            We can't wait to see you at the reunion.
+            {fullUser
+              ? "We can't wait to see you at the reunion. Please check your email to finish setting up your account."
+              : "We can't wait to see you at the reunion."}
           </p>
           <Button
             onClick={handleClose}

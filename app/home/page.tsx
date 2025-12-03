@@ -1,14 +1,22 @@
+"use client";
 import { Card } from "@/components/ui/card";
 import { Calendar, MapPin, Clock, Users } from "lucide-react";
 import { ReunionHero } from "@/app/home/components/reunion-hero";
 import Page from "@/components/page";
 import AccouncementsSection from "./components/announcements";
 import LookingBackSection from "./components/looking-back";
+import { useState } from "react";
+import Footer from "@/components/custom-footer";
 
 export default function ReunionPage() {
+  const [isRsvpModalOpen, setIsRsvpModalOpen] = useState(false);
+
   return (
-    <Page>
-      <ReunionHero />
+    <Page
+      customIsRsvpModalOpen={isRsvpModalOpen}
+      customSetIsRsvpModalOpen={setIsRsvpModalOpen}
+    >
+      <ReunionHero setIsRsvpModalOpen={setIsRsvpModalOpen} />
 
       {/* Event Details Section */}
       <section className="py-16 px-4 bg-charcoal">
@@ -147,28 +155,7 @@ export default function ReunionPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-charcoal text-white py-12 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <h3 className="font-serif text-2xl mb-4">Class of 2013</h3>
-          <p className="text-white/70 mb-6">
-            Questions? Contact the reunion committee at xxxx@xxxx.com
-          </p>
-          <div className="flex justify-center gap-6 text-sm text-white/60">
-            <span>Richlands High School</span>
-            <span>•</span>
-            <span>13 Year Reunion</span>
-            <span>•</span>
-            <span>2026</span>
-            <span>•</span>
-            <a
-              href="/attributions"
-              className="underline hover:text-gray-300 ml-1"
-            >
-              Image Credits
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </Page>
   );
 }

@@ -16,6 +16,7 @@ type RsvpFormAdvancedProps = {
   setUser: (user: User) => void;
   setPage?: (page: number) => void;
   onClose: () => void;
+  loading: boolean;
 };
 
 export default function RsvpFormAdvanced({
@@ -25,6 +26,7 @@ export default function RsvpFormAdvanced({
   user,
   setUser,
   onClose,
+  loading,
 }: RsvpFormAdvancedProps) {
   const [error, setError] = useState<string>("");
   if (submitted) {
@@ -191,10 +193,11 @@ export default function RsvpFormAdvanced({
             </div>
 
             <Button
-              className="w-full bg-sage hover:bg-sage/90 text-white"
+              className="w-full bg-sage hover:bg-sage/90 text-white cursor-pointer"
               type="submit"
+              disabled={loading}
             >
-              Submit RSVP
+              {loading ? "Submitting..." : "Submit RSVP"}
             </Button>
           </form>
         </Card>

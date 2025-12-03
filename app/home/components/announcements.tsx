@@ -19,7 +19,6 @@ export default function AccouncementsSection() {
   ];
 
   const hasAnnouncements = announcements && announcements.length > 0;
-
   const content = hasAnnouncements ? (
     <>
       <div className="max-w-4xl mx-auto space-y-6">
@@ -28,12 +27,13 @@ export default function AccouncementsSection() {
             key={announcement.id}
             className="p-4 bg-charcoal/85 border border-sage/30 rounded-lg"
           >
+            <p className="text-sm text-muted-foreground mt-2 text-white">
+              Posted by <strong>{announcement.postedBy}</strong> on{" "}
+              {announcement.createdAt &&
+                announcement.createdAt.toLocaleDateString()}
+            </p>
             <p className="text-rich-gold text-pretty text-lg">
               {announcement.content}
-            </p>
-            <p className="text-sm text-muted-foreground mt-2 text-white">
-              Posted by {announcement.postedBy} on{" "}
-              {new Date(announcement.createdAt).toLocaleDateString()}
             </p>
           </div>
         ))}

@@ -5,16 +5,15 @@ import Modal from "./modal";
 
 type NavBarProps = {
   children?: React.ReactNode;
+  authed: boolean;
 };
 
-export default function NavBar({ children }: NavBarProps) {
-  const authed = true;
-
+export default function NavBar({ children, authed }: NavBarProps) {
   const navList = (
     <span className="flex justify-center h-full bg-black">
       <NavTab title="Home" destination="/home" />
-      <NavTab title="Directory" destination="/directory" />
-      <NavTab title="Memories" destination="/memories" />
+      {authed && <NavTab title="Directory" destination="/directory" />}
+      {/**<NavTab title="Memories" destination="/memories" />*/}
       <NavTab title="Photo Gallery" destination="/gallery" />
       {authed && <NavTab title="Map" destination="/map" />}
       <NavTab title="In Memoriam" destination="/memoriam" />
