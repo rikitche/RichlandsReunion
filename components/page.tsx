@@ -6,16 +6,19 @@ import RsvpModal from "./rsvp/rsvp-form-modal";
 import { useSupabaseUser } from "@/hooks/useSupabaseUser";
 import LoginModal from "./login/login-modal";
 import useLogout from "@/hooks/useLogout";
+import PageNotFound from "./page-not-found";
 
 type PageProps = {
   children?: React.ReactNode;
   customIsRsvpModalOpen?: boolean;
   customSetIsRsvpModalOpen?: (isOpen: boolean) => void;
+  authRequired?: boolean;
 };
 export default function Page({
   children,
   customIsRsvpModalOpen,
   customSetIsRsvpModalOpen,
+  authRequired,
 }: PageProps) {
   const [isRsvpModalOpenTemp, setIsRsvpModalOpenTemp] = React.useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = React.useState(false);
@@ -29,6 +32,10 @@ export default function Page({
 
   const { user, loading } = useSupabaseUser();
   const logout = useLogout();
+
+  if (authRequired && !loading && !user) {
+    return <PageNotFound />;
+  }
 
   return (
     <div>

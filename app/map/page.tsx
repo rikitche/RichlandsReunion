@@ -10,7 +10,7 @@ const GlobalMap = dynamic(() => import("./components/global-map"), {
 
 export default function MapPage() {
   return (
-    <Page>
+    <Page authRequired>
       <div className=" flex flex-col items-center mb-10">
         <h2 className="font-serif text-4xl md:text-5xl text-rich-gold mb-8 text-center mt-5">
           Where are the Wildcats now?

@@ -11,7 +11,7 @@ export default function DirectoryPage() {
     "Peter Griffin",
   ];
   return (
-    <Page>
+    <Page authRequired>
       <h2 className="font-serif text-4xl md:text-5xl text-rich-gold mb-8 text-center mt-5">
         Richlands High School | Class of 2013
       </h2>
