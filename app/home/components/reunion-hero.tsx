@@ -23,7 +23,7 @@ export function ReunionHero({ setIsRsvpModalOpen }: ReunionHeroProps) {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             size="lg"
-            className="bg-sage hover:bg-sage/90 text-white px-8 cursor-pointer"
+            className="bg-rich-blue hover:bg-rich-blue/90 text-white px-8 cursor-pointer"
             onClick={() => setIsRsvpModalOpen(true)}
           >
             RSVP Now
