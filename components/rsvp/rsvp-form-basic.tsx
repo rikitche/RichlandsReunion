@@ -34,50 +34,50 @@ export function RsvpForm({ setPage, setUser }: RsvpFormProps) {
   };
 
   return (
-    <section className="py-16 px-4 bg-charcoal">
+    <section className="py-16 px-4 bg-background">
       <div className="max-w-xl mx-auto">
-        <h2 className="font-serif text-4xl md:text-5xl text-center mb-4 text-rich-gold text-balance">
+        <h2 className="font-serif text-4xl md:text-5xl text-center mb-4 text-rich-blue text-balance">
           RSVP Today
         </h2>
-        <p className="text-center text-muted-foreground mb-8 text-pretty text-white">
+        <p className="text-center text-muted-foreground mb-8 text-pretty text-charcoal">
           Let us know you're coming so we can plan accordingly
         </p>
 
-        <Card className="p-8 bg-charcoal border-sage/20">
+        <Card className="p-8 bg-background border-rich-gold/50">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="name" className="text-rich-gold">
+              <Label htmlFor="name" className="text-rich-blue">
                 First Name
               </Label>
               <Input
                 id="name"
                 name="firstName"
-                className="text-white"
+                className="text-deep-blue"
                 placeholder="John"
                 required
               />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="maiden" className="text-rich-gold">
+              <Label htmlFor="maiden" className="text-rich-blue">
                 Last Name (Maiden name if applicable)
               </Label>
               <Input
                 id="lastName"
                 name="lastName"
-                className="text-white"
+                className="text-deep-blue"
                 placeholder="Smith"
               />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-rich-gold">
+              <Label htmlFor="email" className="text-rich-blue">
                 Email Address
               </Label>
               <Input
                 id="email"
                 name="email"
-                className="text-white"
+                className="text-deep-blue"
                 type="email"
                 placeholder="john@example.com"
                 required
@@ -85,13 +85,13 @@ export function RsvpForm({ setPage, setUser }: RsvpFormProps) {
             </div>
 
             <div className="space-y-3">
-              <Label className="text-rich-gold">Will you be attending?</Label>
+              <Label className="text-rich-blue">Will you be attending?</Label>
               <RadioGroup name="attending" defaultValue="yes" required>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="yes" id="yes" />
                   <Label
                     htmlFor="yes"
-                    className="font-normal cursor-pointer text-white"
+                    className="font-normal cursor-pointer text-deep-blue"
                   >
                     Yes, I'll be there!
                   </Label>
@@ -100,7 +100,7 @@ export function RsvpForm({ setPage, setUser }: RsvpFormProps) {
                   <RadioGroupItem value="no" id="no" />
                   <Label
                     htmlFor="no"
-                    className="font-normal cursor-pointer text-white"
+                    className="font-normal cursor-pointer text-deep-blue"
                   >
                     Unfortunately, I can't make it
                   </Label>
@@ -109,13 +109,13 @@ export function RsvpForm({ setPage, setUser }: RsvpFormProps) {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="guests" className="text-rich-gold">
+              <Label htmlFor="guests" className="text-rich-blue">
                 Number of Guests (including yourself)
               </Label>
               <Input
                 id="guests"
                 name="guests"
-                className="text-white"
+                className="text-deep-blue"
                 type="number"
                 min="1"
                 max="4"

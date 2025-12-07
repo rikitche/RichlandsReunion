@@ -25,14 +25,14 @@ export default function AccouncementsSection() {
         {announcements.map((announcement) => (
           <div
             key={announcement.id}
-            className="p-4 bg-charcoal/85 border border-sage/30 rounded-lg"
+            className="p-4 hover:shadow-lg transition-shadow border-2 rounded-lg"
           >
-            <p className="text-sm text-muted-foreground mt-2 text-white">
+            <p className="text-sm text-muted-foreground mt-2 text-black">
               Posted by <strong>{announcement.postedBy}</strong> on{" "}
               {announcement.createdAt &&
                 announcement.createdAt.toLocaleDateString()}
             </p>
-            <p className="text-rich-gold text-pretty text-lg">
+            <p className="text-muted-foreground leading-relaxed">
               {announcement.content}
             </p>
           </div>
@@ -48,7 +48,7 @@ export default function AccouncementsSection() {
   return (
     <section className="bg-transparent py-16 px-4">
       <div className="max-w-4xl mx-auto">
-        <h2 className="font-serif text-4xl md:text-5xl text-rich-gold mb-8 text-center">
+        <h2 className="font-serif text-4xl md:text-5xl text-black font-semibold mb-8 text-center">
           Announcements
         </h2>
       </div>

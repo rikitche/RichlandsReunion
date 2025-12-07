@@ -26,42 +26,42 @@ export function LoginForm({ onSubmit }: LoginFormProps) {
   };
 
   return (
-    <section className="py-16 px-4 bg-charcoal">
+    <section className="py-16 px-4 bg-background">
       <div className="max-w-xl mx-auto">
-        <h2 className="font-serif text-4xl md:text-5xl text-center mb-4 text-rich-gold text-balance">
+        <h2 className="font-serif text-4xl md:text-5xl text-center mb-4 text-rich-blue text-balance">
           Login
         </h2>
 
-        <Card className="p-8 bg-charcoal border-sage/20">
+        <Card className="p-8 bg-background border-rich-gold/50">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-rich-gold">
+              <Label htmlFor="email" className="text-charcoal">
                 Email
               </Label>
               <Input
                 id="email"
                 name="email"
-                className="text-white"
+                className="text-deep-blue"
                 type="email"
                 required
               />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-rich-gold">
+              <Label htmlFor="password" className="text-charcoal">
                 Password
               </Label>
               <Input
                 id="password"
                 name="password"
-                className="text-white"
+                className="text-deep-blue"
                 type="password"
                 required
               />
             </div>
 
             <Button
-              className="w-full bg-sage hover:bg-sage/90 text-white cursor-pointer"
+              className="w-full bg-rich-blue hover:bg-rich-blue/90 text-white cursor-pointer"
               type="submit"
               disabled={loading}
             >

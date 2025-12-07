@@ -17,12 +17,12 @@ export default function RsvpSubmitted({
     onClose();
   };
   return (
-    <section className="py-16 px-4 bg-charcoal">
+    <section className="py-16 px-4 bg-background">
       <div className="max-w-xl mx-auto">
-        <Card className="p-8 text-center bg-charcoal border-sage/20">
-          <div className="h-16 w-16 rounded-full bg-sage/10 flex items-center justify-center mx-auto mb-4">
+        <Card className="p-8 text-center bg-background border-rich-gold/50">
+          <div className="h-16 w-16 rounded-full bg-rich-gold/10 flex items-center justify-center mx-auto mb-4">
             <svg
-              className="h-8 w-8 text-sage"
+              className="h-8 w-8 text-rich-gold"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -35,10 +35,10 @@ export default function RsvpSubmitted({
               />
             </svg>
           </div>
-          <h3 className="font-serif text-3xl mb-2 text-rich-gold">
+          <h3 className="font-serif text-3xl mb-2 text-rich-blue">
             You're All Set!
           </h3>
-          <p className="text-muted-foreground mb-4 text-white">
+          <p className="text-muted-foreground mb-4 text-charcoal">
             {fullUser
               ? "We can't wait to see you at the reunion. Please check your email to finish setting up your account."
               : "We can't wait to see you at the reunion."}
@@ -46,7 +46,7 @@ export default function RsvpSubmitted({
           <Button
             onClick={handleClose}
             variant="outline"
-            className="border-sage text-sage hover:bg-sage/5 bg-charcoal cursor-pointer"
+            className="border-sage text-white hover:bg-sage/90 bg-sage cursor-pointer"
           >
             Done!
           </Button>

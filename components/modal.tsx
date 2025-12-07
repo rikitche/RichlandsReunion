@@ -38,12 +38,12 @@ export default function Modal({
       {/* prevent click propagation so clicks inside modal don't close it */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`relative bg-charcoal rounded-2xl shadow-lg w-full max-w-lg max-h-[90vh] overflow-y-auto p-6 mx-4 ${
+        className={`relative bg-background rounded-2xl shadow-lg w-full max-w-lg max-h-[90vh] overflow-y-auto p-6 mx-4 ${
           className || ""
         }`}
       >
         {title && (
-          <h2 className="text-2xl font-semibold mb-4 text-rich-gold">
+          <h2 className="text-2xl font-semibold mb-4 text-rich-blue">
             {title}
           </h2>
         )}

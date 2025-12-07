@@ -217,7 +217,12 @@ export default function GlobalMap() {
         {isEditing ? "Finish Editing" : "Edit My Location"}
       </button>
 
-      <MapContainer center={mapCenter} zoom={2} className="w-full h-full">
+      <MapContainer
+        center={mapCenter}
+        minZoom={2}
+        zoom={2}
+        className="w-full h-full"
+      >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
         <LocationSetter
