@@ -39,57 +39,64 @@ export default function Page({
 
   return (
     <div>
-      {!loading && (
-        <>
-          <NavBar authed={user}>
-            {!loading && !user && (
-              <>
-                <Button
-                  {...({} as any)}
-                  variant="normal"
-                  size="sm"
-                  className="bg-rich-gold text-black hover:bg-rich-gold/90 rounded-20 cursor-pointer"
-                  onClick={() => setIsRsvpModalOpen(true)}
-                >
-                  <span>RSVP</span>
-                </Button>
-                <Button
-                  {...({} as any)}
-                  variant="gradient"
-                  size="sm"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-20 cursor-pointer"
-                  onClick={() => setIsLoginModalOpen(true)}
-                >
-                  <span>LOG IN</span>
-                </Button>
-              </>
-            )}
-            {user && (
-              <>
-                <Button
-                  {...({} as any)}
-                  variant="gradient"
-                  size="sm"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-20 cursor-pointer"
-                  onClick={logout}
-                >
-                  <span>LOG OUT</span>
-                </Button>
-              </>
-            )}
-          </NavBar>
-          <RsvpModal
-            isOpen={isRsvpModalOpen}
-            onClose={() => setIsRsvpModalOpen(false)}
-          />
-          <LoginModal
-            isOpen={isLoginModalOpen}
-            onClose={() => setIsLoginModalOpen(false)}
-          />
+      <main
+        className="relative min-h-screen h-full w-full bg-fixed bg-center bg-cover bg-blend-overlay bg-white/95"
+        style={{
+          backgroundImage: "url('/wildcat-2.png')",
+        }}
+      >
+        {!loading && (
+          <>
+            <NavBar authed={user}>
+              {!loading && !user && (
+                <>
+                  <Button
+                    {...({} as any)}
+                    variant="normal"
+                    size="sm"
+                    className="bg-rich-gold text-black hover:bg-rich-gold/90 rounded-20 cursor-pointer"
+                    onClick={() => setIsRsvpModalOpen(true)}
+                  >
+                    <span>RSVP</span>
+                  </Button>
+                  <Button
+                    {...({} as any)}
+                    variant="gradient"
+                    size="sm"
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-20 cursor-pointer"
+                    onClick={() => setIsLoginModalOpen(true)}
+                  >
+                    <span>LOG IN</span>
+                  </Button>
+                </>
+              )}
+              {user && (
+                <>
+                  <Button
+                    {...({} as any)}
+                    variant="gradient"
+                    size="sm"
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-20 cursor-pointer"
+                    onClick={logout}
+                  >
+                    <span>LOG OUT</span>
+                  </Button>
+                </>
+              )}
+            </NavBar>
+            <RsvpModal
+              isOpen={isRsvpModalOpen}
+              onClose={() => setIsRsvpModalOpen(false)}
+            />
+            <LoginModal
+              isOpen={isLoginModalOpen}
+              onClose={() => setIsLoginModalOpen(false)}
+            />
 
-          {children}
-        </>
-      )}
+            {children}
+          </>
+        )}
+      </main>
     </div>
   );
 }

@@ -25,7 +25,7 @@ export default function AccouncementsSection() {
         {announcements.map((announcement) => (
           <div
             key={announcement.id}
-            className="p-4 hover:shadow-lg transition-shadow border-2 rounded-lg"
+            className="p-4 hover:shadow-lg transition-shadow border-2 border-rich-gold rounded-lg bg-white/60"
           >
             <p className="text-sm text-muted-foreground mt-2 text-black">
               Posted by <strong>{announcement.postedBy}</strong> on{" "}

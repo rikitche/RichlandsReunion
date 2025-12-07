@@ -19,10 +19,10 @@ export default function ReunionPage() {
       <ReunionHero setIsRsvpModalOpen={setIsRsvpModalOpen} />
 
       {/* Event Details */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-24 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="p-8 text-center hover:shadow-lg transition-shadow border-2">
+            <Card className="p-8 text-center hover:shadow-lg transition-shadow border-2 bg-white/70">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
                 <Calendar className="w-8 h-8 text-rich-blue" />
               </div>
@@ -30,13 +30,13 @@ export default function ReunionPage() {
                 {"When"}
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                {"Saturday, June 21, 2025"}
+                {"Saturday, June 21, 2026"}
                 <br />
                 {"6:00 PM - 11:00 PM"}
               </p>
             </Card>
 
-            <Card className="p-8 text-center hover:shadow-lg transition-shadow border-2">
+            <Card className="p-8 text-center hover:shadow-lg transition-shadow border-2 bg-white/70">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent/10 mb-4">
                 <MapPin className="w-8 h-8 text-rich-gold" />
               </div>
@@ -50,7 +50,7 @@ export default function ReunionPage() {
               </p>
             </Card>
 
-            <Card className="p-8 text-center hover:shadow-lg transition-shadow border-2">
+            <Card className="p-8 text-center hover:shadow-lg transition-shadow border-2 bg-white/70">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
                 <Users className="w-8 h-8 text-rich-blue" />
               </div>
@@ -72,7 +72,7 @@ export default function ReunionPage() {
       <LookingBackSection />
 
       {/* Schedule Section */}
-      <section id="schedule" className="py-16 md:py-24 bg-background">
+      <section id="schedule" className="py-16 md:py-24 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance">
@@ -118,7 +118,7 @@ export default function ReunionPage() {
                   </span>
                 </div>
                 <div className="flex-grow">
-                  <Card className="p-6 border-l-4 border-l-rich-gold">
+                  <Card className="p-6 border-l-4 border-l-rich-gold bg-white/70 hover:shadow-lg transition-shadow">
                     <h3 className="font-serif text-xl font-bold mb-1 text-foreground">
                       {item.title}
                     </h3>

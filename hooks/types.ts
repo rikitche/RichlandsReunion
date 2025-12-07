@@ -14,3 +14,10 @@ export type User = {
   guests: number;
   fullUser: boolean;
 };
+
+export type Student = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  superlative?: string;
+};

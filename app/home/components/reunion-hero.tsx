@@ -18,11 +18,11 @@ export function ReunionHero({ setIsRsvpModalOpen }: ReunionHeroProps) {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 text-balance leading-tight">
-            {"Reconnect & Celebrate"}
+            {"Welcome Back, Wildcats!"}
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90 text-pretty leading-relaxed">
             {
-              "Join us for an unforgettable reunion as we celebrate 10 years of memories, friendships, and shared experiences"
+              "Join us for an unforgettable reunion as we celebrate 13 years of memories, friendships, and shared experiences"
             }
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
