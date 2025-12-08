@@ -37,8 +37,9 @@ export function ReunionHero({ setIsRsvpModalOpen }: ReunionHeroProps) {
               size="lg"
               variant="outline"
               className="border-2 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary font-semibold px-8 cursor-pointer"
+              onClick={() => router.push("/gallery")}
             >
-              View Details
+              Gallery
             </Button>
           </div>
         </div>
