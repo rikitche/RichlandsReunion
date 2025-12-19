@@ -39,9 +39,8 @@ export default function Page({
 
   return (
     <div>
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900 to-black -z-10" />
       <main
-        className="relative min-h-screen h-full w-full bg-fixed bg-center bg-cover bg-blend-overlay bg-gray-900"
+        className="relative min-h-screen h-full w-full bg-fixed bg-center bg-cover bg-blend-overlay bg-white/95"
         style={{
           backgroundImage: "url('/wildcat-2.png')",
         }}
@@ -55,7 +54,7 @@ export default function Page({
                     {...({} as any)}
                     variant="normal"
                     size="sm"
-                    className="text-md bg-black border-rich-gold border-2 text-rich-gold hover:bg-charcoal hover:text-white cursor-pointer"
+                    className="bg-rich-gold text-black hover:bg-rich-gold/90 rounded-20 cursor-pointer"
                     onClick={() => setIsRsvpModalOpen(true)}
                   >
                     <span>RSVP</span>
@@ -64,7 +63,7 @@ export default function Page({
                     {...({} as any)}
                     variant="gradient"
                     size="sm"
-                    className="bg-rich-gold hover:bg-rich-blue text-rich-blue hover:text-rich-gold text-md rounded-20 cursor-pointer"
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-20 cursor-pointer"
                     onClick={() => setIsLoginModalOpen(true)}
                   >
                     <span>LOG IN</span>
@@ -77,7 +76,7 @@ export default function Page({
                     {...({} as any)}
                     variant="gradient"
                     size="sm"
-                    className="bg-rich-gold hover:bg-rich-blue text-rich-blue hover:text-rich-gold text-md rounded-20 cursor-pointer"
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-20 cursor-pointer"
                     onClick={logout}
                   >
                     <span>LOG OUT</span>
