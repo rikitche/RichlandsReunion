@@ -20,7 +20,7 @@ export default function NavTab({ title, destination }: TabProps) {
         as="a"
         href={destination || "#"}
         variant="medium"
-        className="p-1 font-pretty text-rich-gold text-lg"
+        className="p-1 font-pretty text-sm text-muted-foreground "
       >
         {title}
       </Typography>

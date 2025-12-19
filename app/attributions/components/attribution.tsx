@@ -21,7 +21,7 @@ export default function Attribution({
 }: AttributionProps) {
   return (
     <div
-      className={`text-xs text-gray-400 text-center mt-2 leading-snug ${className}`}
+      className={`text-xs text-charcoal-400 text-center mt-2 leading-snug p-4 ${className}`}
     >
       {title && <span className="italic">“{title}”</span>}{" "}
       {author && (

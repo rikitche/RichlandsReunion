@@ -14,3 +14,17 @@ export type User = {
   guests: number;
   fullUser: boolean;
 };
+
+export type Student = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  superlative?: string;
+  imgSrc?: string;
+};
+
+export type Picture = {
+  id: number;
+  src: string;
+  caption?: string;
+};

@@ -31,18 +31,18 @@ export default function RsvpFormConfirmation({
     submitRsvp();
   };
   return (
-    <section className="py-16 px-4 bg-charcoal">
+    <section className="py-16 px-4 bg-background">
       <div className="max-w-xl mx-auto">
-        <h2 className="font-serif text-4xl md:text-5xl text-center mb-4 text-rich-gold text-balance">
+        <h2 className="font-serif text-4xl md:text-5xl text-center mb-4 text-rich-blue text-balance">
           RSVP Today
         </h2>
-        <p className="text-center text-muted-foreground mb-8 text-pretty text-white">
+        <p className="text-center text-muted-foreground mb-8 text-pretty text-charcoal">
           Let us know you're coming so we can plan accordingly
         </p>
 
-        <Card className="p-8 bg-charcoal border-sage/20">
+        <Card className="p-8 bg-background border-rich-gold/50">
           <form onSubmit={handleSubmit} className="space-y-6">
-            <h2 className="text-l text-rich-gold text-center">
+            <h2 className="text-l text-rich-blue text-center">
               Would you like to create an account to gain access to exclusive
               info on what your classmates have been up to?
             </h2>
