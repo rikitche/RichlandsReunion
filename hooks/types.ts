@@ -13,6 +13,8 @@ export type User = {
   attending: string;
   guests: number;
   fullUser: boolean;
+  role?: number;
+  validated?: boolean;
 };
 
 export type Student = {

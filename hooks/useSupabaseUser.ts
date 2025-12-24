@@ -1,26 +1,75 @@
 "use client";
 import { useEffect, useState } from "react";
 import { supabase } from "./supabase-client";
+import { User } from "./types";
 
 export function useSupabaseUser() {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => {
-      setUser(data.user);
+  const fetchRsvpUser = async (authUser: { email?: string } | null) => {
+    if (!authUser?.email) {
+      setUser(null);
       setLoading(false);
+      return;
+    }
+
+    const { data, error } = await supabase
+      .from("rsvp")
+      .select("*")
+      .eq("email", authUser.email)
+      .single();
+
+    if (error && error.code !== "PGRST116") {
+      console.error(error);
+      setLoading(false);
+      return;
+    }
+
+    if (data) {
+      setUser({
+        email: data.email,
+        firstName: data.first_name,
+        lastName: data.last_name,
+        attending: data.attending,
+        guests: data.guests ?? 0,
+        fullUser: true,
+        role: data.role,
+        validated: data.validated,
+      });
+    } else {
+      setUser({
+        email: authUser.email,
+        firstName: "",
+        lastName: "",
+        attending: "",
+        guests: 0,
+        fullUser: false,
+      });
+    }
+
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    setLoading(true);
+
+    // Initial load
+    supabase.auth.getUser().then(({ data }) => {
+      fetchRsvpUser(data.user);
     });
 
-    // optional: subscribe to changes
-    const { data: listener } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
-        setUser(session?.user ?? null);
-        setLoading(false);
-      }
-    );
+    // Auth subscription
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setLoading(true);
+      fetchRsvpUser(session?.user ?? null);
+    });
 
-    return () => listener.subscription.unsubscribe();
+    return () => {
+      subscription.unsubscribe();
+    };
   }, []);
 
   return { user, loading };

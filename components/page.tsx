@@ -1,27 +1,31 @@
 "use client";
 import React from "react";
 import NavBar from "./nav-bar";
-import { Typography, Button } from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
 import RsvpModal from "./rsvp/rsvp-form-modal";
 import { useSupabaseUser } from "@/hooks/useSupabaseUser";
 import LoginModal from "./login/login-modal";
 import useLogout from "@/hooks/useLogout";
 import PageNotFound from "./page-not-found";
+import { useRouter } from "next/navigation";
 
 type PageProps = {
   children?: React.ReactNode;
   customIsRsvpModalOpen?: boolean;
   customSetIsRsvpModalOpen?: (isOpen: boolean) => void;
   authRequired?: boolean;
+  adminRequired?: boolean;
 };
 export default function Page({
   children,
   customIsRsvpModalOpen,
   customSetIsRsvpModalOpen,
   authRequired,
+  adminRequired,
 }: PageProps) {
   const [isRsvpModalOpenTemp, setIsRsvpModalOpenTemp] = React.useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = React.useState(false);
+  const router = useRouter();
 
   const isRsvpModalOpen =
     customIsRsvpModalOpen !== undefined
@@ -37,6 +41,10 @@ export default function Page({
     return <PageNotFound />;
   }
 
+  if (adminRequired && !loading && user?.role != 1) {
+    return <PageNotFound />;
+  }
+
   return (
     <div>
       <main
@@ -47,7 +55,7 @@ export default function Page({
       >
         {!loading && (
           <>
-            <NavBar authed={user}>
+            <NavBar authed={user != null} admin={user?.role == 1}>
               {!loading && !user && (
                 <>
                   <Button
@@ -69,6 +77,17 @@ export default function Page({
                     <span>LOG IN</span>
                   </Button>
                 </>
+              )}
+              {user?.role == 1 && (
+                <Button
+                  {...({} as any)}
+                  variant="normal"
+                  size="sm"
+                  className="bg-rich-gold text-black hover:bg-rich-gold/90 rounded-20 cursor-pointer"
+                  onClick={() => router.push("/admin")}
+                >
+                  <span>ADMIN</span>
+                </Button>
               )}
               {user && (
                 <>
