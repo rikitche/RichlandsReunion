@@ -36,6 +36,9 @@ export default function GalleryPage() {
   ];
   return (
     <Page>
+      <h2 className="font-serif text-4xl md:text-5xl text-white mb-8 text-center pt-5 pb-5 font-bold leading-tight bg-rich-blue text-balance">
+        Richlands Photo Gallery
+      </h2>
       <PolaroidGallery images={images} />
       <Footer />
     </Page>

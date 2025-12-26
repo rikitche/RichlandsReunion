@@ -24,8 +24,6 @@ export function useGetAnnouncements() {
         return;
       }
 
-      console.log(data);
-
       if (data) {
         // Map database results to your Announcement type
         const parsed: Announcement[] = data.map((item: any) => ({
