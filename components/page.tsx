@@ -4,6 +4,7 @@ import NavBar from "./nav-bar";
 import { Button } from "@material-tailwind/react";
 import RsvpModal from "./rsvp/rsvp-form-modal";
 import { useSupabaseUser } from "@/hooks/useSupabaseUser";
+import { useGetUser } from "@/hooks/useGetUser";
 import LoginModal from "./login/login-modal";
 import useLogout from "@/hooks/useLogout";
 import PageNotFound from "./page-not-found";
@@ -34,14 +35,20 @@ export default function Page({
 
   const setIsRsvpModalOpen = customSetIsRsvpModalOpen ?? setIsRsvpModalOpenTemp;
 
-  const { user, loading } = useSupabaseUser();
+  const { authUser, authLoading } = useSupabaseUser();
+  const email = authUser?.email ?? null;
+  const { user, loading, error } = useGetUser(email);
   const logout = useLogout();
 
-  if (authRequired && !loading && !user) {
+  const isAuthed = authUser && user?.validated;
+  const isAdmin = authUser?.app_metadata?.role === 1;
+  const isLoading = authLoading || loading;
+
+  if (authRequired && !isLoading && !isAuthed) {
     return <PageNotFound />;
   }
 
-  if (adminRequired && !loading && user?.role != 1) {
+  if (adminRequired && !isLoading && !isAdmin) {
     return <PageNotFound />;
   }
 
@@ -53,10 +60,10 @@ export default function Page({
           backgroundImage: "url('/wildcat-2.png')",
         }}
       >
-        {!loading && (
+        {!isLoading && (
           <>
-            <NavBar authed={user != null} admin={user?.role == 1}>
-              {!loading && !user && (
+            <NavBar authed={isAuthed == true} admin={isAdmin == true}>
+              {!isLoading && !isAuthed && (
                 <>
                   <Button
                     {...({} as any)}
@@ -78,7 +85,7 @@ export default function Page({
                   </Button>
                 </>
               )}
-              {user?.role == 1 && (
+              {isAdmin && (
                 <Button
                   {...({} as any)}
                   variant="normal"
@@ -89,7 +96,7 @@ export default function Page({
                   <span>ADMIN</span>
                 </Button>
               )}
-              {user && (
+              {isAuthed && (
                 <>
                   <Button
                     {...({} as any)}
