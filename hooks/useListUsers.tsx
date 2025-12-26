@@ -17,6 +17,11 @@ export function useListUsers(filters?: ListUsersFilters) {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [refetchState, setRefetchState] = useState(false);
+
+  const refetch = () => {
+    setRefetchState((prev) => !prev);
+  };
 
   useEffect(() => {
     const loadUsers = async () => {
@@ -65,7 +70,7 @@ export function useListUsers(filters?: ListUsersFilters) {
     };
 
     loadUsers();
-  }, [filters]);
+  }, [filters, refetchState]);
 
-  return { users, loading, error };
+  return { users, loading, error, refetch };
 }

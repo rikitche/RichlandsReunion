@@ -5,9 +5,9 @@ import Image from "next/image";
 export default function MemoriamPage() {
   return (
     <Page>
-      <h1 className="mt-10 mb-8 font-serif text-5xl text-black font-semibold mb-8 text-center">
+      <h2 className="font-serif text-4xl md:text-5xl text-white mb-8 text-center pt-5 pb-5 font-bold leading-tight bg-rich-blue text-balance">
         In Loving Memory
-      </h1>
+      </h2>
       <section className="py-16 px-4 bg-charcoal w-0.8 h-auto mt-20 flex flex-col items-center mb-20">
         <div className="relative w-[250px] h-[250px] border-2 border-rich-blue overflow-hidden">
           <Image
