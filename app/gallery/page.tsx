@@ -36,6 +36,9 @@ export default function GalleryPage() {
   ];
   return (
     <Page>
+      <h1 className="mt-10 mb-8 font-serif text-5xl text-black font-semibold mb-8 text-center">
+        Photo Gallery
+      </h1>
       <PolaroidGallery images={images} />
       <Footer />
     </Page>

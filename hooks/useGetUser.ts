@@ -45,7 +45,7 @@ export function useGetUser(email: string | null) {
         lastName: data.last_name,
         attending: data.attending,
         guests: data.guests ?? 0,
-        fullUser: true,
+        fullUser: data.full_user,
         role: data.role,
         validated: data.validated,
       });

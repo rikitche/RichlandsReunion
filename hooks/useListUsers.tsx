@@ -55,7 +55,7 @@ export function useListUsers(filters?: ListUsersFilters) {
           lastName: row.last_name,
           attending: row.attending,
           guests: row.guests ?? 0,
-          fullUser: true,
+          fullUser: row.full_user,
           role: row.role,
           validated: row.validated,
         })) ?? [];

@@ -24,7 +24,7 @@ export default function NavBar({ children, authed, admin }: NavBarProps) {
   return (
     <div
       className="
-    fixed top-0 z-[9998] w-full
+    sticky top-0 z-[9998] w-full
     flex items-center gap-3
     bg-white shadow-md
     px-3 py-2 h-20
