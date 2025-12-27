@@ -18,6 +18,7 @@ export default function NavBar({ children, authed, admin }: NavBarProps) {
       <NavTab title="Photo Gallery" destination="/gallery" />
       {authed && <NavTab title="Map" destination="/map" />}
       <NavTab title="In Memoriam" destination="/memoriam" />
+      <NavTab title="Then vs. Now" destination="/now" />
     </span>
   );
 
