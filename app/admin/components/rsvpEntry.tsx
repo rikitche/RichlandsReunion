@@ -39,13 +39,15 @@ export default function RsvpEntry({ user, show, onChange }: RsvpEntryProps) {
         )}
         {user.validated == true && (
           <div className="flex gap-2">
-            <button
-              className="px-3 py-1 text-xs font-semibold rounded-md bg-red-600 text-white hover:bg-red-700 transition cursor-pointer"
-              onClick={() => modifyValidation(false)}
-              disabled={loading}
-            >
-              {loading ? "Loading..." : "Remove"}
-            </button>
+            {user.role != 1 && (
+              <button
+                className="px-3 py-1 text-xs font-semibold rounded-md bg-red-600 text-white hover:bg-red-700 transition cursor-pointer"
+                onClick={() => modifyValidation(false)}
+                disabled={loading}
+              >
+                {loading ? "Loading..." : "Remove"}
+              </button>
+            )}
           </div>
         )}
       </div>
