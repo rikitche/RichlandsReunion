@@ -91,7 +91,11 @@ export default function RsvpModal({ isOpen, onClose }: RsvpModalProps) {
         />
       </>
     ) : (
-      <RsvpSubmitted setSubmitted={setSubmitted} onClose={handleClose} />
+      <RsvpSubmitted
+        setSubmitted={setSubmitted}
+        onClose={handleClose}
+        fullUser={user.fullUser}
+      />
     );
 
   return (
